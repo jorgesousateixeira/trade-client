@@ -1,0 +1,55 @@
+.publicHomeContainer {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+.content1 {
+    background: var(--home-db-highlight-color1);
+    height: 50vh;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+.content1 .appName {
+    font-size: 4em;
+    margin-bottom: -12px;
+    margin-left: 1em;
+    color:  var(--home-db-highlight-color2);
+    font-weight: 500;
+}
+.content2 {
+    background: var(--home-db-highlight-color2);
+    height: 50vh;
+    display: flex;
+}
+.content2 .appDescription {
+    font-size: 4em;
+    margin-top: -12px;
+    margin-left: 1em;
+    color: white;
+    font-weight: 500;
+}
+.loginBtn .icon {
+    font-size: 2em;
+    color: white;
+    margin-bottom: -12px;
+}
+.loginBtn {
+ margin-right: 5em;
+    font-size: 2em;
+}
+.loginBtn a:link {
+    text-decoration: none;
+}
+
+.loginBtn a:visited {
+    text-decoration: none;
+}
+
+.loginBtn a:hover {
+    text-decoration: underline;
+}
+
+.loginBtn a:active {
+    text-decoration: underline;
+}

@@ -1,41 +1,54 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
+:root {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+    background-color: whitesmoke;
+    /* public highlight colors */
+    --home-db-highlight-color1: #95D1E9;
+    --home-db-highlight-color2: #3F6471;
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+    /* colors */
+    --rgb-color-success: 76, 175, 80;
+    --color-success    : #4caf50;
+    --rgb-color-info   : 41, 182, 246;
+    --color-info       : #29b6f6;
+    --rgb-color-warning: 255, 180, 0;
+    --color-warning    : #ffb400;
+    --rgb-color-danger : 196, 24, 60;
+    --color-danger     : #c4183c;
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
+    --color-white    : #FFFFFF;
+    --color-black    : #000000;
+    --rgb-color-black: 0, 0, 0;
 
-.card {
-  padding: 2em;
-}
+    --color-primary    : #344990;
+    --rgb-color-primary: 52, 73, 144;
+    --color-secondary  : #6CC5EA;
+    --color-tertiary   : #C4C4C4;
 
-.read-the-docs {
-  color: #888;
+    --text-primary  : #1E1E1E;
+    --text-secondary: rgb(var(--rgb-color-primary), .25);
+
+    --text-link-primary    : var(--color-primary);
+    --text-link-alternative: var(--color-secondary);
+
+    --btn-primary-bg      : var(--color-primary);
+    --btn-primary-bg-hover: rgb(var(--rgb-color-primary), .8);
+
+    --btn-secondary-bg      : rgb(var(--rgb-color-primary), .25);
+    --btn-secondary-bg-hover: rgb(var(--rgb-color-primary), .05);
+
+    --btn-disabled-bg  : rgb(var(--rgb-color-primary), .25);
+    --btn-disabled-text: var(--color-white);
+
+    --menu-primary-text      : var(--text-primary);
+    --menu-primary-text-popup: var(--color-primary);
+
+    --input-primary-text: var(--color-tertiary);
+
+    --border-color-primary: rgb(var(--rgb-color-black), 0.23);
+    --border-primary      : 1px solid var(--border-color-primary);
+    --border-radius-s     : 4px;
+    --border-radius-m     : 8px;
 }
