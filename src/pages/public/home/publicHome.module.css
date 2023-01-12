@@ -1,55 +1,167 @@
+ /* TODO: Set global variables */
+
 .publicHomeContainer {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-}
-.content1 {
-    background: var(--home-db-highlight-color1);
-    height: 50vh;
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-}
-.content1 .appName {
-    font-size: 4em;
-    margin-bottom: -12px;
-    margin-left: 1em;
-    color:  var(--home-db-highlight-color2);
-    font-weight: 500;
-}
-.content2 {
-    background: var(--home-db-highlight-color2);
-    height: 50vh;
-    display: flex;
-}
-.content2 .appDescription {
-    font-size: 4em;
-    margin-top: -12px;
-    margin-left: 1em;
-    color: white;
-    font-weight: 500;
-}
-.loginBtn .icon {
-    font-size: 2em;
-    color: white;
-    margin-bottom: -12px;
-}
-.loginBtn {
- margin-right: 5em;
-    font-size: 2em;
-}
-.loginBtn a:link {
-    text-decoration: none;
+	height        : 100vh;
+	display       : flex;
+	flex-direction: column;
+	font-family   : 'Akshar', sans-serif;
+	color         : #004165;
 }
 
-.loginBtn a:visited {
-    text-decoration: none;
+.publicHomeBackground {
+	flex-grow          : 1;
+	background-repeat  : no-repeat;
+	background-size    : cover;
+	background-position: center;
 }
 
-.loginBtn a:hover {
-    text-decoration: underline;
+.publicHomeHeader {
+	display        : flex;
+	justify-content: space-between;
+	align-items    : center;
+	padding        : 40px;
 }
 
-.loginBtn a:active {
-    text-decoration: underline;
+.appName {
+	font-size: 2rem;
+}
+
+.appName span:first-child {
+	color      : #BD3834;
+	font-weight: 400;
+}
+
+.appName span:last-child {
+	font-weight: 300;
+}
+
+.appLogo {
+	height: 35px;
+	cursor: pointer;
+}
+
+.publicHomeContent {
+	display: flex;
+	padding: 40px;
+}
+
+.publicHomeFloater {
+	display          : flex;
+	flex-direction   : column;
+	gap              : 40px;
+	margin-top       : 20vh;
+	/* margin-left   : 3vw; */
+}
+
+.publicHomeQuotes {
+	display       : flex;
+	flex-direction: column;
+	align-self    : flex-start;
+	gap           : 10px;
+	font-size     : 2rem;
+	font-weight   : 500;
+}
+
+.publicHomeQuotes p {
+	position: relative;
+	margin  : 0;
+	padding : 0;
+	width   : fit-content;
+}
+
+.publicHomeQuotes p:first-of-type:before {
+	content            : "";
+	position           : absolute;
+	display            : inline-block;
+	top                : -0.3em;
+	left               : -0.5em;
+	width              : 0.8em;
+	height             : 0.8em;
+	background-image   : url(/src/assets/images/quote.svg);
+	background-size    : cover;
+	background-position: center;
+	background-repeat  : no-repeat;
+}
+
+.publicHomeQuotes p:last-of-type:after {
+	content            : "";
+	position           : absolute;
+	display            : inline-block;
+	bottom             : -0.3em;
+	right              : -0.5em;
+	width              : 0.8em;
+	height             : 0.8em;
+	background-image   : url(/src/assets/images/quote.svg);
+	background-size    : cover;
+	background-position: center;
+	background-repeat  : no-repeat;
+	transform          : scale(-1);
+}
+
+.publicHomeLogin {
+	display    : flex;
+	align-items: center;
+	align-self : flex-start;
+	color      : #fff;
+	height     : 30px;
+	cursor     : pointer;
+}
+
+.publicHomeLogin:hover {
+	color: #BD3834;
+}
+
+.publicHomeLogin>div {
+	display       : flex;
+	align-items   : center;
+	background    : #BD3834;
+	padding       : 0 15px;
+	text-transform: uppercase;
+	height        : 100%;
+	border        : 2px solid #BD3834;
+}
+
+.publicHomeLogin:hover>div {
+	background: transparent;
+}
+
+.publicHomeLogin>svg {
+	width : 30px;
+	height: 30px;
+	fill  : #BD3834;
+	border: 2px solid #BD3834;
+}
+
+.publicHomeLogin:hover>svg {
+	fill      : #fff;
+	background: #BD3834;
+}
+
+.publicGradient {
+	background: linear-gradient(45deg, #81b0b9, #c0d8dc);
+}
+
+.publicMainOuterContainer {
+	display       : flex;
+	flex-direction: column;
+	height        : 100vh;
+	background    : linear-gradient(45deg, #81b0b9, #c0d8dc);
+}
+
+.publicOuterContainer {
+	display  : flex;
+	flex-grow: 1;
+}
+
+.publicImage {
+	position           : relative;
+	background-size    : cover;
+	background-position: center;
+	background-repeat  : no-repeat;
+	flex-grow          : 1;
+}
+
+.publicInfoContainer {
+	margin   : 10em;
+	/* width : 25em; */
 }
