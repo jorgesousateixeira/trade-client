@@ -15,7 +15,7 @@ export default function Error404(){
           <h1>{t('public.404.title')}</h1>
           <div className={publicStyles.main}>
             <p>{t('public.404.text')}</p>
-            <Link to={'public/home'}>
+            <Link to={'/'}>
               <Button variant="contained" type={'button'} className="btn-primary">{t('public.404.button')}</Button>
             </Link>
           </div>

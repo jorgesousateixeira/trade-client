@@ -20,10 +20,9 @@ function App() {
       <AppContextProvider>
         <AppThemeProvider>
           <Routes>
-            <Route path="public" element={<PublicContainer />}>
+            <Route path="" element={<PublicContainer />}>
               <Route path="" element={<PublicHome />} />
-              <Route path="/public" element={<PublicHome />} />
-              <Route path="/public/login" element={<Login />} />
+              <Route path="/login" element={<Login />} />
             </Route>
             <Route path="/private" element={<PrivateContainer />}>
               <Route path="/private/home" element={<PrivateHome />} />

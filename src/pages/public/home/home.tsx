@@ -17,7 +17,7 @@ export function PublicHome() {
         <p>Never lose sight of what's important</p>
       </div>
 
-      <Link component={RouterLink} to="/public/login" replace className={pubStyles.publicHomeLogin}>
+      <Link component={RouterLink} to="/login" replace className={pubStyles.publicHomeLogin}>
         <Button variant="contained">Login</Button>
       </Link>
     </Fade>
