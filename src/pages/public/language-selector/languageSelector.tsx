@@ -1,21 +1,25 @@
-import React from 'react';
-import {LanguagesEnum} from "../../../models/clientOnly/languages.enum";
-import {Button} from "@mui/material";
-import {useTranslation} from "react-i18next";
+import { Button, Link, useTheme } from '@mui/material';
+import { useTranslation } from 'react-i18next';
+import { LanguagesEnum } from '~/models/clientOnly/languages.enum';
 
 const LanguageSelector = () => {
-    const { t, i18n } = useTranslation();
+  const theme = useTheme();
+  const { t, i18n } = useTranslation();
 
-    return (
+  return (
     <>
-        {Object.values(LanguagesEnum).map((lng) => (
-            <Button key={lng}
-                    type="submit"
-                    onClick={() => i18n.changeLanguage(lng)}>
-                {lng}
-            </Button>
-        ))}
-    </>);
+      {Object.values(LanguagesEnum).map((lng) => (
+        <Button
+          key={lng}
+          variant="text"
+          type="submit"
+          onClick={() => i18n.changeLanguage(lng)}
+          sx={{ p: theme.spacing(1, 2), minWidth: 0 }}>
+          {lng.toLocaleUpperCase()}
+        </Button>
+      ))}
+    </>
+  );
 };
 
 export default LanguageSelector;

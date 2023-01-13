@@ -1,0 +1,15 @@
+{
+	"endOfLine": "crlf",
+	"singleQuote": true,
+	"semi": true,
+	"tabWidth": 2,
+	"trailingComma": "es5",
+	"printWidth": 140,
+	"bracketSameLine": true,
+	"bracketSpacing": true,
+	"useTabs": false,
+	"arrowParens": "always",
+	"embeddedLanguageFormatting": "auto",
+	"singleAttributePerLine": false,
+	"quoteProps": "as-needed"
+}
