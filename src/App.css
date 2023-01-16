@@ -5,6 +5,13 @@
     --home-db-highlight-color1: #95D1E9;
     --home-db-highlight-color2: #3F6471;
 
+    --navigation-bg-color: red;
+    --content-bg-color: green;
+    --private-bg-color-light: cyan;
+    --private-bg-color-dark: magenta;
+
+
+
 
     /* colors */
     --rgb-color-success: 76, 175, 80;
@@ -33,6 +40,8 @@
     --text-link-alternative: var(--color-secondary);
 
     --btn-primary-bg      : var(--color-primary);
+    --btn-primary-bg-dark: var(--color-danger);
+
     --btn-primary-bg-hover: rgb(var(--rgb-color-primary), .8);
 
     --btn-secondary-bg      : rgb(var(--rgb-color-primary), .25);

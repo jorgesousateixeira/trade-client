@@ -1,13 +1,8 @@
-import { createTheme, ThemeProvider } from '@mui/material';
+import { createTheme } from '@mui/material';
 
-const GetCssVariable = (variable: string) => getComputedStyle(document.body).getPropertyValue(variable).trim();
+  const GetCssVariable = (variable: string) => getComputedStyle(document.body).getPropertyValue(variable).trim();
 
-interface Props {
-  children?: React.ReactNode;
-}
-
-export const AppThemeProvider: React.FC<Props> = ({ children }) => {
-  const theme = createTheme({
+  export const lightTheme = createTheme({
     palette: {
       primary: {
         main: GetCssVariable('--btn-primary-bg'),
@@ -16,6 +11,9 @@ export const AppThemeProvider: React.FC<Props> = ({ children }) => {
       secondary: {
         light: GetCssVariable('--btn-secondary-bg-hover'),
         main: GetCssVariable('--btn-secondary-bg'),
+      },
+      background: {
+        default: GetCssVariable('--private-bg-color-light')
       },
       text: {
         primary: GetCssVariable('--menu-primary-text'),
@@ -31,6 +29,3 @@ export const AppThemeProvider: React.FC<Props> = ({ children }) => {
       fontFamily: '"Akshar", sans-serif',
     },
   });
-
-  return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
-};
