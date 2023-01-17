@@ -8,7 +8,7 @@ import useLocalStorage from '~/hooks/localStorageHook';
 import { NavigationModulesEnum } from '~/models/clientOnly/navigationModulesEnum';
 import { User } from '~/models/users/user';
 import { Box, Link, SxProps, Typography, useTheme } from '@mui/material';
-import { AdminPanelSettingsOutlined, ArticleOutlined, HandshakeOutlined, Home, MailOutline, Settings } from '@mui/icons-material';
+import { AdminPanelSettingsOutlined, ArticleOutlined, HandshakeOutlined, Home, MailOutline, MoreVert, Settings } from '@mui/icons-material';
 
 import styles from './privateNavigation.module.css';
 
@@ -50,10 +50,15 @@ export default function PrivateNavigation() {
         className={active ? styles.active : ''}
         color="text.secondary"
         sx={{
-          ':hover': { color: theme.palette.text.primary, background: theme.palette.text.secondary },
+          // '&.active, :hover': { color: theme.palette.text.primary, background: theme.palette.text.secondary },
+          ':hover div:first-child': { marginLeft: 2, opacity: 1 },
           ...sx,
         }}>
-        {icon} {label}
+        <div className={styles.navButtonCircle}></div>
+        <div className={styles.navButton}>
+          {icon}
+          <span>{label}</span>
+        </div>
       </Link>
     );
   };
@@ -61,12 +66,12 @@ export default function PrivateNavigation() {
   return (
     // <div className={[styles.navContainer, styles2.animatedFadein].join(' ')}>
     <Box className={styles.navContainer} sx={{ backgroundColor: theme.palette.primary.main }}>
-      <div className={styles.appName}>
+      <Box className={styles.appName} sx={{ backgroundColor: theme.palette.primary.light, p: theme.spacing(2, 2) }}>
         <span>TRADE</span>
         <Typography variant="body1" component="span" color="text.secondary">
           ADMINISTRATION
         </Typography>
-      </div>
+      </Box>
 
       <nav className={styles.nav}>
         <NavButton
@@ -107,12 +112,20 @@ export default function PrivateNavigation() {
         />
       </nav>
 
-      <div className={styles.userAndSignature}>
-        <PositionedMenu user={loggedUser} />
-        <Link underline="none" component={RouterLink} to="www.saphety.com" color="text.secondary">
+      <Box className={styles.userAndSignature} sx={{ backgroundColor: theme.palette.primary.light, p: theme.spacing(2, 2) }}>
+        {/* <PositionedMenu user={loggedUser} /> */}
+        <Box className={styles.userContainer} color="text.secondary">
+          <Box className={styles.userAvatar} sx={{ width: 40, height: 40 }}></Box>
+          <div className={styles.userDetails}>
+            <span>John Doe</span>
+            <span>john.doe@email.com</span>
+          </div>
+          <MoreVert color="inherit" />
+        </Box>
+        {/* <Link underline="none" component={RouterLink} to="www.saphety.com" color="text.secondary">
           www.saphety.com
-        </Link>
-      </div>
+        </Link> */}
+      </Box>
     </Box>
   );
 }
