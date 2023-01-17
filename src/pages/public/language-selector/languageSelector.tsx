@@ -1,4 +1,4 @@
-import { Button, Link, useTheme } from '@mui/material';
+import { Button, useTheme } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import { LanguagesEnum } from '~/models/clientOnly/languages.enum';
 
@@ -14,7 +14,7 @@ const LanguageSelector = () => {
           variant="text"
           type="submit"
           onClick={() => i18n.changeLanguage(lng)}
-          sx={{ p: theme.spacing(1, 2), minWidth: 0 }}>
+          sx={{ p: theme.spacing(1, 2), minWidth: 0, color: theme.palette.text.primary }}>
           {lng.toLocaleUpperCase()}
         </Button>
       ))}

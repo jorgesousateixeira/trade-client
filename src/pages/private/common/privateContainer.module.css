@@ -1,13 +1,11 @@
 .userName {
-    color: var(--text-in-reverse-color);
-    font-size: .6em;
+    font-size: .6rem;
 }
 
 .animatedFadein {
-    font-size: 21px;
-    text-align: center;
     animation: fadein .8s;
 }
+
 @keyframes fadein {
     from {
         opacity:0;

@@ -1,14 +1,4 @@
-/*
-privateContainer
-   navigation
-   content
-*/
-.privateContainer {
-    display: flex;
-}
-.navigation {
-    background: var(--navigation-bg-color);
-}
-.content {
-    background: var(--content-bg-color);
+.privateOuter {
+    display   : flex;
+    height    : 100vh;
 }

@@ -3,7 +3,7 @@
   display       : flex;
   flex-direction: column;
   height        : 100vh;
-  background    : linear-gradient(45deg, #81b0b9, #c0d8dc);
+  box-sizing    : content-box;
 }
 
 .publicMain {
@@ -66,7 +66,7 @@
 }
 
 .publicHeader span:first-child {
-  color      : var(--color-secondary);
+  color      : var(--color-app-name);
   font-weight: 600;
 }
 
@@ -134,17 +134,12 @@
   text-transform: uppercase;
 }
 
-.publicLoginHeader p {
-  margin   : 0;
-  font-size: .5em;
-  color    : #3D6C86;
-}
-
 .publicLoginFields {
   display       : flex;
   flex-direction: column;
   gap           : 1rem;
 }
+
 /* TOOLBAR */
 .publicToolBar {
   position: absolute;
@@ -157,6 +152,7 @@
 .visible {
   visibility: visible;
 }
+
 .hidden {
   visibility: hidden;
 }

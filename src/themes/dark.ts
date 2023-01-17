@@ -4,25 +4,19 @@ const GetCssVariable = (variable: string) => getComputedStyle(document.body).get
 
 export const darkTheme = createTheme({
   palette: {
+    mode: 'dark',
     primary: {
-      main: GetCssVariable('--btn-primary-bg-dark'),
-      dark: GetCssVariable('--btn-primary-bg-hover'),
+      main: GetCssVariable('--color-primary-dark'),
     },
     secondary: {
-      light: GetCssVariable('--btn-secondary-bg-hover'),
-      main: GetCssVariable('--btn-secondary-bg'),
-    },
-    background: {
-      default: GetCssVariable('--private-bg-color-dark')
+      main: GetCssVariable('--color-secondary-dark'),
     },
     text: {
-      primary: GetCssVariable('--menu-primary-text'),
-      secondary: GetCssVariable('--menu-primary-text-popup'),
+      primary: GetCssVariable('--color-text-dark'),
+      secondary: GetCssVariable('--color-text-light'),
     },
-    action: {
-      hoverOpacity: 0.15,
-      disabledBackground: GetCssVariable('--btn-disabled-bg'),
-      disabled: GetCssVariable('--color-white'),
+    background: {
+      default: GetCssVariable('--bg-light'),
     },
   },
   typography: {

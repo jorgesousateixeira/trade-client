@@ -1,19 +1,6 @@
-import {useContext, useState} from 'react';
-import { Link as RouterLink, useNavigate } from 'react-router-dom';
-import {
-  Box,
-  TextField,
-  FormControlLabel,
-  Checkbox,
-  Button,
-  Link,
-  useTheme,
-  Alert,
-  FormControl,
-  FormHelperText,
-  IconButton,
-  Collapse, LinearProgress,
-} from '@mui/material';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { Box, TextField, Button, useTheme, LinearProgress, Typography } from '@mui/material';
 import { toast } from 'react-toastify';
 
 import AccountService from '~/api-services/accountService';
@@ -21,13 +8,11 @@ import * as localStorageKeys from '~/local-storage/localStorageKeys';
 import { Fade } from '~/animations/fade';
 import pubStyles from '../public.module.css';
 import { useTranslation } from 'react-i18next';
-import {ThemeContext} from "~/ThemeProvider";
 
 export function Login() {
   const theme = useTheme();
   const { t } = useTranslation();
   const navigate = useNavigate();
-  const setThemeName = useContext(ThemeContext)
 
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -53,20 +38,21 @@ export function Login() {
 
   return (
     <Fade className={pubStyles.publicMainOuterContainer}>
-      <Box
-        component="form"
-        className={[
-          pubStyles.publicLogin,
-        ].join(' ')}
-        onSubmit={handleLogin}>
+      <Box component="form" className={[pubStyles.publicLogin].join(' ')} onSubmit={handleLogin}>
         <div className={pubStyles.publicLoginHeader}>
-          <h2>{t('loginPage.title')}</h2>
-          <p>{t('loginPage.enterCredentials')}</p>
+          <Typography variant="h4" component="h1">
+            {t('loginPage.title')}
+          </Typography>
+          <Typography variant="subtitle1" component="p" color="primary.light">
+            {t('loginPage.enterCredentials')}
+          </Typography>
         </div>
 
-        <div className={[pubStyles.publicLoginFields,
-          `${hasErrors ? [pubStyles.loginErrors, 'animate__animated', 'animate__shakeX'].join(' ') : ''}`
-        ].join(" ")}>
+        <div
+          className={[
+            pubStyles.publicLoginFields,
+            `${hasErrors ? [pubStyles.loginErrors, 'animate__animated', 'animate__shakeX'].join(' ') : ''}`,
+          ].join(' ')}>
           <TextField
             id="username"
             label={t('loginPage.username')}
@@ -77,7 +63,10 @@ export function Login() {
               setUsername(e.target.value);
               setHasErrors(false);
             }}
-            sx={{ '& .MuiFormLabel-root': { color: theme.palette.primary.main } }}
+            sx={{
+              '& .MuiFormLabel-root': { color: theme.palette.primary.light },
+              '& fieldset': { borderColor: theme.palette.primary.light },
+            }}
           />
           <TextField
             id="password"
@@ -90,12 +79,15 @@ export function Login() {
               setPassword(e.target.value);
               setHasErrors(false);
             }}
-            sx={{ '& .MuiFormLabel-root': { color: theme.palette.primary.main } }}
+            sx={{
+              '& .MuiFormLabel-root': { color: theme.palette.primary.light },
+              '& fieldset': { borderColor: theme.palette.primary.light },
+            }}
           />
         </div>
         <div className="loginBtn">
-           <LinearProgress color="warning" className={`${isLoading ? pubStyles.visible  : pubStyles.hidden }`} />
-          <Button sx={{lineHeight: 2}} fullWidth variant="contained" type="submit" disabled={isLoading}>
+          <LinearProgress color="warning" className={`${isLoading ? pubStyles.visible : pubStyles.hidden}`} />
+          <Button sx={{ lineHeight: 2 }} fullWidth variant="contained" type="submit" disabled={isLoading}>
             {t('loginPage.loginBtn')}
           </Button>
         </div>
@@ -107,18 +99,6 @@ export function Login() {
         </Alert>}
         */}
       </Box>
-      <Button
-          variant="contained"
-          color="secondary"
-          onClick={() => setThemeName("darkTheme")}>
-        Set Dark Theme
-      </Button>
-      <Button
-          variant="contained"
-          color="secondary"
-          onClick={() => setThemeName("lightTheme")}>
-        Set Light Theme
-      </Button>
     </Fade>
   );
 }

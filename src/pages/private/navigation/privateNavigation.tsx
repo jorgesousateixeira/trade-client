@@ -1,63 +1,118 @@
-import styles from './privateNavigation.module.css'
-import styles2 from '../common/privateContainer.module.css'
-import {Link} from "react-router-dom";
-import PositionedMenu from "../common/menu";
-import * as localStorageKeys from "../../../local-storage/localStorageKeys";
-import { useContext, useEffect } from 'react';
+// import styles2 from '../common/privateContainer.module.css';
+import { Link as RouterLink } from 'react-router-dom';
+import PositionedMenu from '../common/menu';
+import * as localStorageKeys from '~/local-storage/localStorageKeys';
+import { useContext } from 'react';
 import { AppContext } from '../../../shared/context/app.context';
-import {NavigationModulesEnum} from "../../../models/clientOnly/navigationModulesEnum";
-import useLocalStorage from "../../../hooks/localStorageHook";
-import {User} from "../../../models/users/user";
+import useLocalStorage from '~/hooks/localStorageHook';
+import { NavigationModulesEnum } from '~/models/clientOnly/navigationModulesEnum';
+import { User } from '~/models/users/user';
+import { Box, Link, SxProps, Typography, useTheme } from '@mui/material';
+import { AdminPanelSettingsOutlined, ArticleOutlined, HandshakeOutlined, Home, MailOutline, Settings } from '@mui/icons-material';
+
+import styles from './privateNavigation.module.css';
 
 export default function PrivateNavigation() {
-   // const activeComponent = useSelector((state:AppState) => state?.auth?.activeComponent);
+  // const activeComponent = useSelector((state:AppState) => state?.auth?.activeComponent);
 
-    const [loggedUser, setLoggedUser] = useLocalStorage<User>(localStorageKeys.APP_LOGGED_USER, {} as User);
+  const [loggedUser, setLoggedUser] = useLocalStorage<User>(localStorageKeys.APP_LOGGED_USER, {} as User);
 
-    const [ AppValue ] = useContext(AppContext);
-    const activeComponent = NavigationModulesEnum.PrivateHome;
-    //let loggedUser = useAppSelector((state) => state.login.user)
+  const [AppValue] = useContext(AppContext);
+  const activeComponent = NavigationModulesEnum.PrivateHome;
+  //let loggedUser = useAppSelector((state) => state.login.user)
 
-
-/*    let loggedUser = undefined;
+  /*    let loggedUser = undefined;
     const loggedUserStr = localStorage.getItem(localStorageKeys.APP_LOGGED_USER);
     if (loggedUserStr){
         loggedUser = JSON.parse(loggedUserStr);
     }*/
 
-    // console.log(AppValue);
+  // console.log(AppValue);
+
+  const theme = useTheme();
+
+  interface NavButtonModel {
+    label: string;
+    icon: React.ReactNode;
+    active: boolean;
+    to: string;
+    sx?: SxProps;
+  }
+
+  const NavButton = (props: NavButtonModel) => {
+    const { label, icon, active, to, sx } = props;
 
     return (
-        <div className={[styles.navContainer, styles2.animatedFadein].join((" "))}>
-            <div className={styles.appName}>Trade</div>
-            <nav className={styles.nav}>
-                <Link to="/private/home" className={AppValue.activeComponent === NavigationModulesEnum.PrivateHome ? styles.active : ''}>
-                    <span>Home</span>
-                </Link>
-                <Link to="/private/messages" className={AppValue.activeComponent === NavigationModulesEnum.Messages ? styles.active : ''}>
-                    <span>Messages</span>
-                </Link>
-                <Link to="/private/documents" className={AppValue.activeComponent === NavigationModulesEnum.Documents ? styles.active : ''}>
-                    <span>Documents</span>
-                </Link>
-                <Link to="/private/partners" className={AppValue.activeComponent === NavigationModulesEnum.Partners ? styles.active : ''}>
-                    <span>Partners</span>
-                </Link>
-                <Link to="/private/settings" className={AppValue.activeComponent === NavigationModulesEnum.Settings ? styles.active : ''}>
-                    <span>Settings</span>
-                </Link>
-                <Link to="/private/admin" className={AppValue.activeComponent === NavigationModulesEnum.Admin || AppValue.activeComponent === NavigationModulesEnum.Users ? styles.active : ''}>
-                    <span>Admin</span>
-                </Link>
-            </nav>
-            <div className={styles.userAndSignature}>
-                <div className={styles.userArea}>
-                    <PositionedMenu user={loggedUser} />
-                </div>
-                <div className={styles.signature}>
-                    <a>www.saphety.com</a>
-                </div>
-            </div>
-        </div>
-    )
+      <Link
+        underline="none"
+        component={RouterLink}
+        to={to}
+        className={active ? styles.active : ''}
+        color="text.secondary"
+        sx={{
+          ':hover': { color: theme.palette.text.primary, background: theme.palette.text.secondary },
+          ...sx,
+        }}>
+        {icon} {label}
+      </Link>
+    );
+  };
+
+  return (
+    // <div className={[styles.navContainer, styles2.animatedFadein].join(' ')}>
+    <Box className={styles.navContainer} sx={{ backgroundColor: theme.palette.primary.main }}>
+      <div className={styles.appName}>
+        <span>TRADE</span>
+        <Typography variant="body1" component="span" color="text.secondary">
+          ADMINISTRATION
+        </Typography>
+      </div>
+
+      <nav className={styles.nav}>
+        <NavButton
+          label="Home"
+          icon={<Home />}
+          active={AppValue.activeComponent === NavigationModulesEnum.PrivateHome}
+          to="/private/home"
+        />
+        <NavButton
+          label="Messages"
+          icon={<MailOutline />}
+          active={AppValue.activeComponent === NavigationModulesEnum.Messages}
+          to="/private/messages"
+        />
+        <NavButton
+          label="Documents"
+          icon={<ArticleOutlined />}
+          active={AppValue.activeComponent === NavigationModulesEnum.Documents}
+          to="/private/documents"
+        />
+        <NavButton
+          label="Partners"
+          icon={<HandshakeOutlined />}
+          active={AppValue.activeComponent === NavigationModulesEnum.Partners}
+          to="/private/partners"
+        />
+        <NavButton
+          label="Settings"
+          icon={<Settings />}
+          active={AppValue.activeComponent === NavigationModulesEnum.Settings}
+          to="/private/settings"
+        />
+        <NavButton
+          label="Admin"
+          icon={<AdminPanelSettingsOutlined />}
+          active={AppValue.activeComponent === NavigationModulesEnum.Admin || AppValue.activeComponent === NavigationModulesEnum.Users}
+          to="/private/admin"
+        />
+      </nav>
+
+      <div className={styles.userAndSignature}>
+        <PositionedMenu user={loggedUser} />
+        <Link underline="none" component={RouterLink} to="www.saphety.com" color="text.secondary">
+          www.saphety.com
+        </Link>
+      </div>
+    </Box>
+  );
 }

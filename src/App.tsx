@@ -12,28 +12,33 @@ import { Documents } from './pages/private/documents/documents';
 import { AppContextProvider } from './shared/context/app.context';
 import Error404 from './pages/public/error/error-404';
 import { PublicContainer } from './pages/public/public';
-import {AppThemeProviderChangeable} from "~/ThemeProvider";
+import { AppThemeProviderChangeable } from '~/ThemeProvider';
+import ThemeToggle from './shared/components/theme-toggle/theme-toggle';
+import { CssBaseline } from '@mui/material';
 
 function App() {
   return (
     <BrowserRouter>
       <AppContextProvider>
         <AppThemeProviderChangeable>
-          <Routes>
-            <Route path="" element={<PublicContainer />}>
-              <Route path="/public" element={<PublicHome />} />
-              <Route path="/public/home" element={<PublicHome />} />
-              <Route path="/public/login" element={<Login />} />
-            </Route>
-            <Route path="/private" element={<PrivateContainer />}>
-              <Route path="/private/home" element={<PrivateHome />} />
-              <Route path="/private/messages" element={<Messages2 />} />
-              <Route path="/private/documents" element={<Documents />} />
-            </Route>
-            <Route path="404" element={<Error404 />} />
-            <Route path="*" element={<Navigate to="404" replace />} />
-          </Routes>
-          <ToastContainer autoClose={3000} />
+          <ThemeToggle sx={{ position: 'absolute', top: 0, right: 20 }} />
+          <CssBaseline>
+            <Routes>
+              <Route path="" element={<PublicContainer />}>
+                <Route path="/public" element={<PublicHome />} />
+                <Route path="/public/home" element={<PublicHome />} />
+                <Route path="/public/login" element={<Login />} />
+              </Route>
+              <Route path="/private" element={<PrivateContainer />}>
+                <Route path="/private/home" element={<PrivateHome />} />
+                <Route path="/private/messages" element={<Messages2 />} />
+                <Route path="/private/documents" element={<Documents />} />
+              </Route>
+              <Route path="404" element={<Error404 />} />
+              <Route path="*" element={<Navigate to="404" replace />} />
+            </Routes>
+            <ToastContainer autoClose={3000} />
+          </CssBaseline>
         </AppThemeProviderChangeable>
       </AppContextProvider>
     </BrowserRouter>
