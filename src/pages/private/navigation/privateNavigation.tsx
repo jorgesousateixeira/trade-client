@@ -11,6 +11,7 @@ import { Box, Link, SxProps, Typography, useTheme } from '@mui/material';
 import { AdminPanelSettingsOutlined, ArticleOutlined, HandshakeOutlined, Home, MailOutline, MoreVert, Settings } from '@mui/icons-material';
 
 import styles from './privateNavigation.module.css';
+import ThemeToggle from '~/shared/components/theme-toggle/theme-toggle';
 
 export default function PrivateNavigation() {
   // const activeComponent = useSelector((state:AppState) => state?.auth?.activeComponent);
@@ -48,29 +49,30 @@ export default function PrivateNavigation() {
         component={RouterLink}
         to={to}
         className={active ? styles.active : ''}
-        color="text.secondary"
+        color="inherit"
         sx={{
-          // '&.active, :hover': { color: theme.palette.text.primary, background: theme.palette.text.secondary },
-          ':hover div:first-child': { marginLeft: 2, opacity: 1 },
+          // '&.active, :hover': { color: theme.palette.primary.dark, background: theme.palette.primary.dark },
           ...sx,
         }}>
-        <div className={styles.navButtonCircle}></div>
-        <div className={styles.navButton}>
-          {icon}
-          <span>{label}</span>
+        <div className={styles.navButtonContainer}>
+          <div className={styles.navButton}>
+            {icon}
+            <span>{label}</span>
+          </div>
+          <Box className={styles.navButtonCircle}></Box>
         </div>
       </Link>
     );
   };
 
   return (
-    // <div className={[styles.navContainer, styles2.animatedFadein].join(' ')}>
-    <Box className={styles.navContainer} sx={{ backgroundColor: theme.palette.primary.main }}>
-      <Box className={styles.appName} sx={{ backgroundColor: theme.palette.primary.light, p: theme.spacing(2, 2) }}>
-        <span>TRADE</span>
-        <Typography variant="body1" component="span" color="text.secondary">
-          ADMINISTRATION
-        </Typography>
+    <Box className={styles.navContainer} sx={{ background: theme.palette.primary.main, color: theme.palette.primary.contrastText }}>
+      <Box className={styles.appName} sx={{ p: theme.spacing(2, 0, 2, 2) }}>
+        <div>
+          <span style={{ color: theme.palette.secondary.main }}>TRADE</span>
+          <span>ADMINISTRATION</span>
+        </div>
+        <ThemeToggle className={styles.toggle} sx={{ m: 0 }} />
       </Box>
 
       <nav className={styles.nav}>
@@ -112,9 +114,9 @@ export default function PrivateNavigation() {
         />
       </nav>
 
-      <Box className={styles.userAndSignature} sx={{ backgroundColor: theme.palette.primary.light, p: theme.spacing(2, 2) }}>
+      <Box className={styles.userAndSignature} sx={{ p: theme.spacing(2, 2) }}>
         {/* <PositionedMenu user={loggedUser} /> */}
-        <Box className={styles.userContainer} color="text.secondary">
+        <Box className={styles.userContainer}>
           <Box className={styles.userAvatar} sx={{ width: 40, height: 40 }}></Box>
           <div className={styles.userDetails}>
             <span>John Doe</span>
@@ -122,7 +124,7 @@ export default function PrivateNavigation() {
           </div>
           <MoreVert color="inherit" />
         </Box>
-        {/* <Link underline="none" component={RouterLink} to="www.saphety.com" color="text.secondary">
+        {/* <Link underline="none" component={RouterLink} to="www.saphety.com" color="primary.contrastText">
           www.saphety.com
         </Link> */}
       </Box>

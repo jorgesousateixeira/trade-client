@@ -66,7 +66,7 @@
 }
 
 .publicHeader span:first-child {
-  color      : var(--color-app-name);
+  /* color      : var(--color-app-name); */
   font-weight: 600;
 }
 

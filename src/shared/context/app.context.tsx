@@ -27,7 +27,7 @@ export const AppContextProvider = (props: any) => {
     }
     const [AppValue, setAppValue] = useState<IAppContextProperties>(appDefaultContext);
     useEffect(() => {
-        console.log('useEffect on AppContext')
+        // console.log('useEffect on AppContext')
     }, [AppValue])
 
     return (

@@ -6,17 +6,17 @@ export const lightTheme = createTheme({
   palette: {
     mode: 'light',
     primary: {
-      main: GetCssVariable('--color-primary-light'),
+      main: GetCssVariable('--lt-color-primary'),
     },
     secondary: {
-      main: GetCssVariable('--color-secondary-light'),
+      main: GetCssVariable('--lt-color-secondary'),
     },
     text: {
-      primary: GetCssVariable('--color-text-light'),
-      secondary: GetCssVariable('--color-text-dark'),
+      primary: GetCssVariable('--lt-color-text-primary'),
+      secondary: GetCssVariable('--lt-color-text-secondary'),
     },
     background: {
-      default: GetCssVariable('--bg-dark'),
+      default: GetCssVariable('--color-bg-dark'),
     },
   },
   typography: {

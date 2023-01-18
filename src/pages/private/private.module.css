@@ -1,4 +1,10 @@
 .privateOuter {
-    display   : flex;
-    height    : 100vh;
+    display: flex;
+    height : 100vh;
+}
+
+.privateHeader h1 {
+    font-size  : 2em;
+    font-weight: 500;
+    margin     : 0;
 }

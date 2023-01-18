@@ -6,17 +6,17 @@ export const darkTheme = createTheme({
   palette: {
     mode: 'dark',
     primary: {
-      main: GetCssVariable('--color-primary-dark'),
+      main: GetCssVariable('--dt-color-primary'),
     },
     secondary: {
-      main: GetCssVariable('--color-secondary-dark'),
+      main: GetCssVariable('--dt-color-secondary'),
     },
     text: {
-      primary: GetCssVariable('--color-text-dark'),
-      secondary: GetCssVariable('--color-text-light'),
+      primary: GetCssVariable('--dt-color-text-primary'),
+      secondary: GetCssVariable('--dt-color-text-secondary'),
     },
     background: {
-      default: GetCssVariable('--bg-light'),
+      default: GetCssVariable('--color-bg-light'),
     },
   },
   typography: {

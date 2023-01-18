@@ -1,7 +1,7 @@
 import { Outlet } from 'react-router-dom';
 import PrivateNavigation from './navigation/privateNavigation';
 import { Fade } from '../../animations/fade';
-import { useTheme } from '@mui/material';
+import { Box, useTheme } from '@mui/material';
 
 import pvtStyles from './private.module.css';
 
@@ -11,7 +11,9 @@ export function PrivateContainer() {
   return (
     <Fade className={pvtStyles.privateOuter} style={{ background: theme.palette.background.default }}>
       <PrivateNavigation />
-      <Outlet />
+      <Box sx={{ flex: 1 }}>
+        <Outlet />
+      </Box>
     </Fade>
   );
 }

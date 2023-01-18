@@ -13,7 +13,6 @@ import { AppContextProvider } from './shared/context/app.context';
 import Error404 from './pages/public/error/error-404';
 import { PublicContainer } from './pages/public/public';
 import { AppThemeProviderChangeable } from '~/ThemeProvider';
-import ThemeToggle from './shared/components/theme-toggle/theme-toggle';
 import { CssBaseline } from '@mui/material';
 
 function App() {
@@ -21,7 +20,6 @@ function App() {
     <BrowserRouter>
       <AppContextProvider>
         <AppThemeProviderChangeable>
-          <ThemeToggle sx={{ position: 'absolute', top: 0, right: 20 }} />
           <CssBaseline>
             <Routes>
               <Route path="" element={<PublicContainer />}>

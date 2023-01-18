@@ -1,17 +1,25 @@
 .navContainer {
-  display           : flex;
-  flex-direction    : column;
-  justify-content   : space-between;
-  flex              : 1;
-  gap               : 60px;
-  /* padding        : 1em 0; */
-  max-width         : 220px;
+  display            : flex;
+  flex-direction     : column;
+  justify-content    : space-between;
+  /* flex            : 1; */
+  /* max-width       : 220px; */
+  gap                : 60px;
+  background-color   : var(--color-main);
+  color              : var(--lt-color-primary)
 }
 
 .appName {
+  display        : flex;
+  justify-content: space-between;
+  align-items    : center;
+  font-size      : 1.5rem;
+  background     : rgb(0, 0, 0, .1);
+}
+
+.appName>div {
   display       : flex;
   flex-direction: column;
-  font-size     : 1.5rem;
 }
 
 .appName span {
@@ -19,7 +27,6 @@
 }
 
 .appName span:first-child {
-  color      : var(--color-app-name);
   font-weight: 600;
 }
 
@@ -29,26 +36,54 @@
   font-weight: 300;
 }
 
+.toggle {
+  transform: rotate(90deg);
+}
 
 .nav {
-  display          : flex;
-  flex-direction   : column;
-  height           : 100%;
-  padding          : .5em .8em;
-  /* gap           : 2em; */
+  display             : flex;
+  flex-direction      : column;
+  height              : 100%;
+  /* padding          : .5em .8em; */
+  /* gap              : 2em; */
 }
 
 .nav a {
-  display      : flex;
-  align-items  : center;
-  font-weight  : 300;
-  line-height  : 0;
-  gap          : .7em;
-  overflow     : hidden;
-  padding      : 1em 0;
-  transition   : background-color .25s ease-out, color .25s ease-out;
-  border-top   : 1px solid transparent;
-  border-bottom: 1px solid transparent;
+  display        : flex;
+  align-items    : center;
+  justify-content: space-between;
+  font-weight    : 300;
+  line-height    : 0;
+  gap            : .7em;
+  overflow       : hidden;
+  padding        : 1.3em 0;
+  border-bottom  : 2px solid rgb(0, 0, 0, .2);
+  transition     : border-color .3s ease-in, background-color .3s ease-in, color .3s ease-in;
+}
+
+.nav a.active {
+  background-color: rgb(255, 255, 255, .1);
+  border-color    : rgb(255, 255, 255, .2);
+}
+
+.nav a:not(.active):hover {
+  background-color: rgb(0, 0, 0, .2);
+}
+
+.nav a:not(.active):hover .navButtonCircle {
+  background-color: rgb(255, 255, 255, .4);
+}
+
+.nav a.active .navButtonCircle {
+  background-color: rgb(255, 255, 255, .4);
+}
+
+.navButtonContainer {
+  display        : flex;
+  justify-content: space-between;
+  align-items    : center;
+  flex           : 1;
+  padding        : 0 .8em;
 }
 
 .navButton {
@@ -62,36 +97,19 @@
 }
 
 .navButtonCircle {
-  width        : .3em;
-  height       : .3em;
-  background   : white;
-  border-radius: 50%;
-  margin-left  : -.3em;
-  opacity      : 0;
-  transition   : margin .25s ease-in, opacity .25s ease-in;
-  will-change  : transform;
+  width           : 6px;
+  height          : 6px;
+  background-color: rgb(0, 0, 0, .4);
+  border-radius   : 50%;
+  will-change     : transform;
+  transition      : background-color .3s ease-in;
 }
 
 .userAndSignature {
-  display       : flex;
-  flex-direction: column;
-  align-items   : center;
-}
-
-.userAndSignature a {
-  font-weight: 300;
-}
-
-.nav .active {
-  font-weight  : 400;
-  opacity      : 1;
-  border-top   : 1px solid;
-  border-bottom: 1px solid;
-}
-
-.nav .active div:first-child {
-  margin-left: 16px;
-  opacity    : 1;
+  display         : flex;
+  flex-direction  : column;
+  align-items     : center;
+  background-color: rgb(0, 0, 0, .1);
 }
 
 .userContainer {
